@@ -1,9 +1,12 @@
 package NumberBaseball.model;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Random;
+import java.util.Set;
 
 public class NumberBaseballModel {
-    private List<String> numbers = new ArrayList<>();
+    private String numbers;
     private final int NUMBER_LENGTH = 3;
     private Set<Integer> numberSet = new HashSet<>();
 
@@ -12,15 +15,18 @@ public class NumberBaseballModel {
     }
 
     private void generateNumbers() {
+        Set<Integer> generatedNumbers = new LinkedHashSet<>();
         Random random = new Random();
 
-        while (numberSet.size() < NUMBER_LENGTH) {
+        while (generatedNumbers.size() < NUMBER_LENGTH) {
             int newNumber = random.nextInt(9) + 1;
-            numberSet.add(newNumber);
+            generatedNumbers.add(newNumber);
         }
 
-        for (Integer number : numberSet) {
-            numbers.add(number.toString());
+        StringBuilder sb = new StringBuilder();
+        for (Integer number : generatedNumbers) {
+            sb.append(number);
         }
+        numbers = sb.toString();
     }
 }
