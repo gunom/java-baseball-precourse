@@ -1,8 +1,8 @@
 package NumberBaseball.model;
 
 public class BaseBallCount {
-    private int strike;
-    private int ball;
+    private final int strike;
+    private final int ball;
 
     public BaseBallCount(int strike, int ball) {
         this.strike = strike;
