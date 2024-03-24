@@ -7,8 +7,8 @@ import NumberBaseball.view.NumberBaseballView;
 import java.util.List;
 
 public class NumberBaseballController {
-    private final NumberBaseballModel model;
-    private final NumberBaseballView view;
+    private NumberBaseballModel model;
+    private NumberBaseballView view;
 
     public NumberBaseballController(NumberBaseballModel model, NumberBaseballView view) {
         this.model = model;

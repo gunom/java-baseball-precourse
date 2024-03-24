@@ -3,9 +3,9 @@ package NumberBaseball.model;
 import java.util.*;
 
 public class NumberBaseballModel {
-    private final List<String> numbers = new ArrayList<>();
+    private List<String> numbers = new ArrayList<>();
     private final int NUMBER_LENGTH = 3;
-    private final Set<Integer> numberSet = new HashSet<>();
+    private Set<Integer> numberSet = new HashSet<>();
 
     public NumberBaseballModel() {
         generateNumbers();
