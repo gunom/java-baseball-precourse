@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class NumberBaseballView {
 
-    public String inputNumber() {
+    public String displayRound() {
         System.out.print(ViewMessage.INPUT_NUMBER);
         return getInput();
     }
@@ -30,5 +30,9 @@ public class NumberBaseballView {
         System.out.println(ViewMessage.GAME_END);
         System.out.println(ViewMessage.RESTART);
         return getInput();
+    }
+
+    public void displayErrorMessage(String message) {
+        System.out.println(message);
     }
 }
