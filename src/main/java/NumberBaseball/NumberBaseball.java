@@ -4,11 +4,9 @@ import NumberBaseball.controller.NumberBaseballController;
 import NumberBaseball.model.NumberBaseballModel;
 import NumberBaseball.view.NumberBaseballView;
 
-import java.util.Random;
-
 public class NumberBaseball {
     public static void main(String[] args) {
-        NumberBaseballModel model = new NumberBaseballModel(new Random());
+        NumberBaseballModel model = new NumberBaseballModel();
         NumberBaseballView view = new NumberBaseballView();
 
         NumberBaseballController numberBaseballController = new NumberBaseballController(model, view);
