@@ -38,14 +38,4 @@ public class NumberBaseballModel {
         ball -= strike;
         return new BaseBallCount(strike, ball);
     }
-
-    public void reset() {
-        numbers.clear();
-        numberSet.clear();
-        generateNumbers();
-    }
-
-    public int getNumberLength() {
-        return NUMBER_LENGTH;
-    }
 }
