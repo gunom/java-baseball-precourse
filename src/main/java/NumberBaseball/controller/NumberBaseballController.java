@@ -23,16 +23,10 @@ public class NumberBaseballController {
     }
 
     private boolean playRound() {
-        try {
-            String input = view.displayRound();
-            InputValidator.isValid(input);
-            BaseBallCount baseBallCount = model.checkCount(List.of(input.split("")));
-            view.displayResult(baseBallCount.getStrike(), baseBallCount.getBall());
-            return checkGameContinue(baseBallCount);
-        } catch (Exception e) {
-            view.displayErrorMessage(e.getMessage());
-            return true;
-        }
+        String input = view.inputNumber();
+        BaseBallCount baseBallCount = model.checkCount(List.of(input.split("")));
+        view.displayResult(baseBallCount.getStrike(), baseBallCount.getBall());
+        return checkGameContinue(baseBallCount);
     }
 
     private boolean checkGameContinue(BaseBallCount baseBallCount) {
@@ -43,22 +37,11 @@ public class NumberBaseballController {
     }
 
     private boolean promptRestartGame() {
-        while (true) {
-            try {
-                return !checkRestartGame();
-            } catch (Exception e) {
-                view.displayErrorMessage(e.getMessage());
-            }
-        }
-    }
-
-    private boolean checkRestartGame() {
         String restartOption = view.displayRestart();
-        InputValidator.isRestartValid(restartOption);
         if ("2".equals(restartOption)) {
-            return true;
+            return false;
         }
         model.reset();
-        return false;
+        return true;
     }
 }
