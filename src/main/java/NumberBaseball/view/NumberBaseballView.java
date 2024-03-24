@@ -16,15 +16,13 @@ public class NumberBaseballView {
         }
 
         String result = "";
-        if (strike > 0) result += strike + "스트라이크 ";
-        if (ball > 0) result += ball + "볼";
-        System.out.println(result);
-    }
+        if (strike > 0) {
+            result += strike + "스트라이크 ";
+        }
 
-    public String displayRestart() {
-        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 끝");
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+        if (ball > 0) {
+            result += ball + "볼";
+        }
+        System.out.println(result);
     }
 }
