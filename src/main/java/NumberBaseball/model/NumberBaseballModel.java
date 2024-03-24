@@ -23,19 +23,4 @@ public class NumberBaseballModel {
             numbers.add(number.toString());
         }
     }
-
-    public BaseBallCount checkCount(List<String> input) {
-        int strike = 0;
-        int ball = 0;
-        for (int i = 0; i < NUMBER_LENGTH; i++) {
-            if (numbers.get(i).equals(input.get(i))) {
-                strike++;
-            }
-            if (numberSet.contains(Integer.parseInt(input.get(i)))) {
-                ball++;
-            }
-        }
-        ball -= strike;
-        return new BaseBallCount(strike, ball);
-    }
 }
