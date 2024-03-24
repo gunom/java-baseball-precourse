@@ -16,49 +16,34 @@ public class NumberBaseballController {
     }
 
     public void startGame() {
-        boolean continueGame = true;
-        while (continueGame) {
-            continueGame = playRound();
+        while (model.isGameContinuing()) {
+            playRound();
         }
     }
 
-    private boolean playRound() {
+    private void playRound() {
         try {
             String input = view.displayRound();
             InputValidator.isValid(input);
             BaseBallCount baseBallCount = model.checkCount(List.of(input.split("")));
             view.displayResult(baseBallCount.getStrike(), baseBallCount.getBall());
-            return checkGameContinue(baseBallCount);
+            if (baseBallCount.getStrike() == model.getNumberLength()) {
+                model.setGameContinuing(promptRestartGame());
+            }
         } catch (Exception e) {
             view.displayErrorMessage(e.getMessage());
-            return true;
         }
-    }
-
-    private boolean checkGameContinue(BaseBallCount baseBallCount) {
-        if (baseBallCount.getStrike() == model.getNumberLength()) {
-            return promptRestartGame();
-        }
-        return true;
     }
 
     private boolean promptRestartGame() {
         while (true) {
             try {
-                return !checkRestartGame();
+                String restartOption = view.displayRestart();
+                InputValidator.isRestartValid(restartOption);
+                return model.processRestartOption(restartOption);
             } catch (Exception e) {
                 view.displayErrorMessage(e.getMessage());
             }
         }
-    }
-
-    private boolean checkRestartGame() {
-        String restartOption = view.displayRestart();
-        InputValidator.isRestartValid(restartOption);
-        if ("2".equals(restartOption)) {
-            return true;
-        }
-        model.reset();
-        return false;
     }
 }
