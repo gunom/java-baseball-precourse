@@ -8,11 +8,11 @@ public class InputValidator {
 
     public static void isValid(String input) {
         if (input == null || !input.matches(VALID_PATTERN) || input.length() != BaseballConfig.BASEBALL_NUMBER_LENGTH)
-            throw new IllegalArgumentException(ErrorMessage.INVALID_INPUT);
+            throw new IllegalArgumentException("[Error] 올바른 값을 입력해주세요.");
     }
 
     public static void isRestartValid(String input) {
         if (input == null || !input.matches(RESTART_VALID_PATTERN))
-            throw new IllegalArgumentException(ErrorMessage.INVALID_INPUT);
+            throw new IllegalArgumentException("[Error] 올바른 값을 입력해주세요.");
     }
 }
